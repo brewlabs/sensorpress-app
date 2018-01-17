@@ -15,15 +15,15 @@ $botman->hears('call me {name}', function ($bot, $name) {
 
 
 $botman->hears('Create {name}', function ($bot, $name) {
-     $name  = str_replace('<',$name);
-     $name  = str_replace('>',$name);
+     $name  = str_replace('<','',$name);
+     $name  = str_replace('>','',$name);
 
 	Monitor::create([
             'url' => trim($name, '/'),
             'look_for_string' => '',
             'uptime_check_method' =>  'head',
             'certificate_check_enabled' => true,
-            'uptime_check_interval_in_minutes' => 60,
+            'uptime_check_interval_in_minutes' => 5,
         ]);
     $bot->reply('Created checks for ' . $name .' 5 minutes');
 });
