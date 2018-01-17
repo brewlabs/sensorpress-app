@@ -27,5 +27,5 @@ $botman->hears('Create {name}', function ($bot, $name) {
 });
 
 $botman->hears('Stats', function ($bot) {
-    return Monitor::all();
+    $bot->reply(Monitor::all());
 });
