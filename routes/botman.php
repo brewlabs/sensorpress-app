@@ -15,6 +15,8 @@ $botman->hears('call me {name}', function ($bot, $name) {
 
 
 $botman->hears('Create {name}', function ($bot, $name) {
+     $name  = str_replace('<',$name);
+     $name  = str_replace('>',$name);
 
 	Monitor::create([
             'url' => trim($name, '/'),
@@ -23,9 +25,11 @@ $botman->hears('Create {name}', function ($bot, $name) {
             'certificate_check_enabled' => true,
             'uptime_check_interval_in_minutes' => 60,
         ]);
-    $bot->reply('msql_createdb() ' . $name);
+    $bot->reply('Created checks for ' . $name .' 5 minutes');
 });
 
-$botman->hears('Stats', function ($bot) {
-    $bot->reply(Monitor::all());
+$botman->hears('Stats {name}', function ($bot) {
+    Monitor::all()
+
+    $bot->reply();
 });
