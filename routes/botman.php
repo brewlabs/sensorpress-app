@@ -25,3 +25,7 @@ $botman->hears('Create {name}', function ($bot, $name) {
         ]);
     $bot->reply('msql_createdb() ' . $name);
 });
+
+$botman->hears('Stats', function ($bot) {
+    return Monitor::all();
+});
