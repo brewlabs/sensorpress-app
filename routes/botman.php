@@ -28,8 +28,3 @@ $botman->hears('Create {name}', function ($bot, $name) {
     $bot->reply('Created checks for ' . $name .' 5 minutes');
 });
 
-$botman->hears('Stats {name}', function ($bot) {
-    Monitor::all()
-
-    $bot->reply();
-});
